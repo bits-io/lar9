@@ -18,6 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('admin')->group(function () {
-    Route::get('dashboard', [AuthController::class, 'dashboard']);
-});
+
+
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('login', [AuthController::class, 'login'])->name('login');
+
+Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom');
+
+Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
+
+Route::get('signout', [AuthController::class, 'signOut'])->name('signout');

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Petugas extends Model
+class Admin extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -17,10 +17,9 @@ class Petugas extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'nama_petugas',
         'username',
         'password',
-        'id_level',
+        'remember_token',
     ];
 
     /**
