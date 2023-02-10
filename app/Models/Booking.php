@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Operator extends Model
+class Booking extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -16,12 +16,19 @@ class Operator extends Model
      *
      * @var array<int, string>
      */
-    protected $table = 'operators';
+    protected $table = 'bookings';
     protected $fillable = [
-        'nama_petugas',
-        'username',
-        'password',
-        'id_level',
+        'kode_pemesanan',
+        'tanggal_pemesanan',
+        'id_pemesanan',
+        'kode_kursi',
+        'id_rute',
+        'tujuan',
+        'tanggal_berangkat',
+        'jam_cekin',
+        'jam_berangkat',
+        'total_bayar',
+        'id_petugas',
     ];
 
     /**

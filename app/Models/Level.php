@@ -16,12 +16,9 @@ class Operator extends Model
      *
      * @var array<int, string>
      */
-    protected $table = 'operators';
+    protected $table = 'levels';
     protected $fillable = [
-        'nama_petugas',
-        'username',
-        'password',
-        'id_level',
+        'nama_level',
     ];
 
     /**

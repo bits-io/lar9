@@ -7,7 +7,7 @@
                     <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./index.html">Dashboard</a></li>
+                    <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                 </ul>
             </li>
             <li class="nav-label">Data Master</li>
@@ -16,8 +16,8 @@
                     <i class="icon-envelope menu-icon"></i> <span class="nav-text">User</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./email-inbox.html">Penumpang</a></li>
-                    <li><a href="./email-read.html">Petugas</a></li>
+                    <li><a href="{{ route('admin.passenger') }}">Penumpang</a></li>
+                    <li><a href="{{ route('admin.operator') }}">Petugas</a></li>
                 </ul>
             </li>
             <li>
@@ -25,8 +25,9 @@
                     <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Transportasi</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./app-profile.html">Profile</a></li>
-                    <li><a href="./app-calender.html">Calender</a></li>
+                    <li><a href="{{ route('admin.transportation') }}">Transportasi</a></li>
+                    <li><a href="{{ route('admin.transportation-type') }}">Tipe Transportasi</a></li>
+                    <li><a href="{{ route('admin.route') }}">Rute</a></li>
                 </ul>
             </li>
             <li class="nav-label">Transaksi</li>
@@ -35,9 +36,9 @@
                     <i class="icon-grid menu-icon"></i><span class="nav-text">Pemesanan</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./ui-accordion.html">Pending</a></li>
-                    <li><a href="./ui-alert.html">Disetujui</a></li>
-                    <li><a href="./ui-badge.html">Tidak Disetui</a></li>
+                    <li><a href="{{ route('admin.booking') }}">Pending</a></li>
+                    <li><a href="{{ route('admin.booking') }}">Disetujui</a></li>
+                    <li><a href="{{ route('admin.booking') }}">Tidak Disetui</a></li>
                 </ul>
             </li>
             <li class="nav-label">Laporan</li>
@@ -46,11 +47,8 @@
                     <i class="icon-note menu-icon"></i><span class="nav-text">Laporan</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./form-basic.html">Basic Form</a></li>
-                    <li><a href="./form-validation.html">Form Validation</a></li>
-                    <li><a href="./form-step.html">Step Form</a></li>
-                    <li><a href="./form-editor.html">Editor</a></li>
-                    <li><a href="./form-picker.html">Picker</a></li>
+                    {{-- <li><a href="{{ route('admin.booking-report') }}">Laporan Pemesanan</a></li> --}}
+                    <li>Laporan</li>
                 </ul>
             </li>
             <li class="nav-label">Table</li>

@@ -16,6 +16,7 @@ class Passenger extends Model
      *
      * @var array<int, string>
      */
+    protected $table = 'passengers';
     protected $fillable = [
         'username',
         'password',

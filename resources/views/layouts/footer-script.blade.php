@@ -23,5 +23,11 @@
     <script src="{{ asset('assets/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js') }}"></script>
 
 
+    <script src="{{ asset('assets/plugins/tables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/tables/js/datatable-init/datatable-basic.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/dashboard/dashboard-1.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+

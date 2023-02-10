@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
 use App\Models\Operator;
 use App\Models\Passenger;
 use Illuminate\Http\Request;
@@ -23,21 +22,30 @@ class AuthController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
+        $check1 = Operator::where('username',$request->username)->exists();
+        $get1 = Operator::where('username',$request->username)->first();
 
-        if ($cek = Operator::where('username',$request->username)->first()) {
-            if(Hash::check($request->username, $cek->password)){
-                Session::put('user', $cek);
+        $check2 = Passenger::where('username',$request->username)->exists();
+        $get2 = Passenger::where('username',$request->username)->first();
+
+
+        if ($check1) {
+            if(Hash::check($request->password, $get1->password)){
+                Session::put('user', $get1);
+                Session::put('role', 'operator');
                 Session::put('isLogin', true);
                 return redirect()->intended('admin/dashboard')->withSuccess('Signed in');
             }
         }
-        else if ($cek = Passenger::where('username',$request->username)->first()) {
-            if(Hash::check($request->username, $cek->password)){
-                return redirect()->intended('dashboard')
-                            ->withSuccess('Signed in');
+        else if ($check2) {
+            if(Hash::check($request->password, $get2->password)){
+                Session::put('user', $get2);
+                Session::put('role', 'passenger');
+                Session::put('isLogin', true);
+                return redirect()->intended('dashboard')->withSuccess('Signed in');
             }
         }
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("login")->withErrors('Login details are not valid');
     }
 
     public function registration()
@@ -57,14 +65,16 @@ class AuthController extends Controller
             'jenis_kelamin' => 'required',
             'telepon' => 'required',
         ]);
+        $check1 = Passenger::where('username',$request->username)->exists();
+        $check2 = Operator::where('username',$request->username)->exists();
 
-        if(Passenger::where('username',$request->username)->first() || Passenger::where('username',$request->username)->first()){
-            return redirect('login')->withErrors('Username sudah digunakan');
+        if($check1 || $check2 ){
+            return redirect('registration')->with('error', "Username sudah digunakan");
         }
 
         Passenger::create([
             'username' => $request->username,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'nama_penumpang' => $request->nama_penumpang,
             'alamat_penumpang' => $request->alamat_penumpang,
             'tanggal_lahir' => $request->tanggal_lahir,
@@ -72,7 +82,7 @@ class AuthController extends Controller
             'telepon' => $request->telepon,
         ]);
 
-        return redirect("login");
+        return redirect("login")->with('success', 'Pendaftaran Berhasil');
     }
 
     public function create(array $data)
@@ -88,10 +98,10 @@ class AuthController extends Controller
 
     public function dashboard()
     {
-        if(Session::has('isLogin')){
+        if(Session::has('isLogin') && Session::get('role') == 'operator'){
 			return view('app.admin.dashboard');
 		}else{
-			return redirect("login")->withSuccess('are not allowed to access');
+			return redirect("login")->withErrors('are not allowed to access');
 		}
 
     }

@@ -16,12 +16,12 @@ class Operator extends Model
      *
      * @var array<int, string>
      */
-    protected $table = 'operators';
+    protected $table = 'transportation';
     protected $fillable = [
-        'nama_petugas',
-        'username',
-        'password',
-        'id_level',
+        'kode',
+        'jumlah_kursi',
+        'keterangan',
+        'id_tipe_transportasi',
     ];
 
     /**

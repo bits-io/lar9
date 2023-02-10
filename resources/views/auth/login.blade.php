@@ -44,13 +44,18 @@
                                 <a class="text-center" href="#">
                                     <img class="mx-auto d-block" src="https://i.ibb.co/W0Q3K0B/Group-289382.png" alt="Travelerz" height="50" srcset="">
                                 </a>
+
+                                @include('layouts.alert')
+
                                 <form class="mt-5 mb-5 login-input" method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Login" name="username">
+                                        <label for="">Username</label>
+                                        <input type="text" class="form-control" placeholder="Masukkan Username" name="username">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" name="password">
+                                        <label for="">Username</label>
+                                        <input type="password" class="form-control" placeholder="Masukkan Password" name="password">
                                     </div>
                                     <button type="submit" class="btn login-form__btn submit w-100">Sign In</button>
                                 </form>

@@ -44,7 +44,7 @@ class BookingController extends Controller
      * @param  \App\Models\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function show(cr $cr)
+    public function show()
     {
         //
     }
@@ -55,7 +55,7 @@ class BookingController extends Controller
      * @param  \App\Models\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function edit(cr $cr)
+    public function edit()
     {
         //
     }
@@ -67,7 +67,7 @@ class BookingController extends Controller
      * @param  \App\Models\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cr $cr)
+    public function update(Request $request)
     {
         //
     }
@@ -78,7 +78,7 @@ class BookingController extends Controller
      * @param  \App\Models\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cr $cr)
+    public function destroy()
     {
         //
     }

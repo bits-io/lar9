@@ -28,7 +28,7 @@
     <!--*******************
         Preloader end
     ********************-->
-
+    @include('layouts.sweetalert')
 
 
 
@@ -44,6 +44,10 @@
                                 <a class="text-center" href="#">
                                     <img class="mx-auto d-block" src="https://i.ibb.co/W0Q3K0B/Group-289382.png" alt="Travelerz" height="50" srcset="">
                                 </a>
+
+                                @if(session()->has('error'))
+                                    <p class="alert alert-danger mb-lg-5 mt-lg-5"> {{ session()->get('error') }}</p>
+                                @endif
 
                                 <form class="mt-5 mb-5 login-input" method="POST" action="{{ route('registration') }}">
                                     @csrf
@@ -80,7 +84,7 @@
                                         <input type="tel" class="form-control"  placeholder="Masukkan Telepon" name="telepon" required>
                                     </div>
 
-                                    <button type="submit" class="btn login-form__btn submit w-100">Sign in</button>
+                                    <button type="submit" class="btn login-form__btn submit w-100">Sign Up</button>
                                 </form>
                                     <p class="mt-5 login-form__footer">Have account <a href="{{ route('login') }}" class="text-primary">Sign In</a> now</p>
                                     </p>
