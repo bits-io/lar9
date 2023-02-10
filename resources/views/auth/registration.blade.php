@@ -1,160 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-100" lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Registration - Travelerz</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/g3w4CVj/globe-06-svgrepo-com-2.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
-  <title>Pages / Register - NiceAdmin Bootstrap Template</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: NiceAdmin - v2.5.0
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
-<body>
+<body class="h-100">
 
-  <main>
-    <div class="container">
-
-      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
-              <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="https://img.icons8.com/ultraviolet/40/null/bus.png" alt="">
-                  <span class="d-none d-lg-block">My Tiket</span>
-                </a>
-              </div><!-- End Logo -->
-
-              <div class="card mb-3">
-
-                <div class="card-body">
-
-                  <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
-                    <p class="text-center small">Enter your personal details to create account</p>
-                  </div>
-
-                  <form class="row g-3 needs-validation" novalidate>
-                    <div class="col-12">
-                      <label class="form-label">Your Username</label>
-                      <input type="text" name="username" class="form-control"  required>
-                      <div class="invalid-feedback">Please, enter your username!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <label class="form-label">Your Password</label>
-                      <input type="password" name="password" class="form-control" required>
-                      <div class="invalid-feedback">Please enter a valid Password!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <label class="form-label">Nama Penumpang</label>
-                      <div class="input-group has-validation">
-                        <input type="text" name="nama_penumpang" class="form-control" required>
-                        <div class="invalid-feedback">Please choose a username.</div>
-                      </div>
-                    </div>
-
-                    <div class="col-12">
-                      <label class="form-label">Alamat Penumpang</label>
-                      <textarea name="alamat_penumpang" class="form-control" style="height: 100px"></textarea>
-                      <div class="invalid-feedback">Please enter your alamat!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <label class="form-label">Tanggal Lahir</label>
-                      <input type="date" name="password" class="form-control"  required>
-                      <div class="invalid-feedback">Please enter your alamat!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">Jenis Kelamin</label>
-                      <select class="form-select" name="jenis_kelamin" aria-label="Default select example">
-                        <option selected="">Pilih jenis kelamin</option>
-                        <option value="1">Laki-laki</option>
-                        <option value="2">Perempuan</option>
-                      </select>
-                      <div class="invalid-feedback">Please enter your alamat!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <label class="form-label">Telepon</label>
-                      <input type="tel" name="telepon" class="form-control" required>
-                      <div class="invalid-feedback">Please enter your telepon!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="pages-login.html">Log in</a></p>
-                    </div>
-                  </form>
-
-                </div>
-              </div>
-
-              <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
-              </div>
-
-            </div>
-          </div>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
         </div>
-
-      </section>
-
     </div>
-  </main><!-- End #main -->
+    <!--*******************
+        Preloader end
+    ********************-->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
 
+
+    <div class="login-form-bg h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100">
+                <div class="col-xl-6">
+                    <div class="form-input-content">
+                        <div class="card login-form mb-0">
+                            <div class="card-body pt-5">
+
+                                <a class="text-center" href="#">
+                                    <img class="mx-auto d-block" src="https://i.ibb.co/W0Q3K0B/Group-289382.png" alt="Travelerz" height="50" srcset="">
+                                </a>
+
+                                <form class="mt-5 mb-5 login-input" method="POST" action="{{ route('registration') }}">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="">Username</label>
+                                        <input type="text" class="form-control"  placeholder="Masukkan Username" name="username" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Password</label>
+                                        <input type="password" class="form-control" placeholder="Masukkan Password" name="password" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Nama Penumpang</label>
+                                        <input type="text" class="form-control"  placeholder="Masukkan Nama Penumpang" name="nama_penumpang" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Alamat Penumpang</label>
+                                        <input type="text" class="form-control"  placeholder="Masukkan Alamat Penumpang" name="alamat_penumpang" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Tanggal Lahir</label>
+                                        <input type="date" class="form-control"  placeholder="Masukkan Tanggal Lahir" name="tanggal_lahir" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Jenis Kelamin</label>
+                                        <select name="jenis_kelamin" class="form-control" required>
+                                            <option value="">Pilih Jenis Kelamin</option>
+                                            <option value="1">Laki-laki</option>
+                                            <option value="2">Perempuan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Telepon</label>
+                                        <input type="tel" class="form-control"  placeholder="Masukkan Telepon" name="telepon" required>
+                                    </div>
+
+                                    <button type="submit" class="btn login-form__btn submit w-100">Sign in</button>
+                                </form>
+                                    <p class="mt-5 login-form__footer">Have account <a href="{{ route('login') }}" class="text-primary">Sign In</a> now</p>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="{{ asset('assets/plugins/common/common.min.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.min.js') }}"></script>
+    <script src="{{ asset('assets/js/settings.js') }}"></script>
+    <script src="{{ asset('assets/js/gleek.js') }}"></script>
+    <script src="{{ asset('assets/js/styleSwitcher.js') }}"></script>
 </body>
-
 </html>
+
+
+
+
+

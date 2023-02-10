@@ -1,33 +1,17 @@
 <meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Tables / General - NiceAdmin Bootstrap Template</title>
-<meta content="" name="description">
-<meta content="" name="keywords">
+    <!-- theme meta -->
+    <meta name="theme-name" content="quixlab" />
 
-<!-- Favicons -->
-<link href="{{asset('assets/img/favicon.png')}}" rel="icon">
-<link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
-
-<!-- Google Fonts -->
-<link href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-<!-- Vendor CSS Files -->
-<link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-<link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
-<link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
-<link href="{{ asset('assets/vendor/quill/quill.snow.css')}}" rel="stylesheet">
-<link href="{{ asset('assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
-<link href="{{ asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
-<link href="{{ asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
-
-<!-- Template Main CSS File -->
-<link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
-
-<!-- =======================================================
-* Template Name: NiceAdmin - v2.5.0
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-======================================================== -->
+    <title>Travelerz</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/g3w4CVj/globe-06-svgrepo-com-2.png">
+    <!-- Pignose Calender -->
+    <link href="{{ asset('assets/plugins/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
+    <!-- Chartist -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/chartist/css/chartist.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css') }}">
+    <!-- Custom Stylesheet -->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">

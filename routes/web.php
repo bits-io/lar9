@@ -23,8 +23,8 @@ Route::get('/', function () {
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 
-Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom');
+Route::get('registration', [AuthController::class, 'registration'])->name('registration');
+Route::post('registration', [AuthController::class, 'customRegistration'])->name('registration');
 
 Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
 

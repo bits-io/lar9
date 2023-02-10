@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Operator;
+use App\Models\Passenger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -22,19 +24,19 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if ($cek = Admin::where('username',$request->username)->first()) {
+        if ($cek = Operator::where('username',$request->username)->first()) {
             if(Hash::check($request->username, $cek->password)){
                 Session::put('user', $cek);
                 Session::put('isLogin', true);
                 return redirect()->intended('admin/dashboard')->withSuccess('Signed in');
             }
         }
-        // else if ($cek = Penumpang::where('username',$request->username)->first()) {
-        //     if(Hash::check($request->username, $cek->password)){
-        //         return redirect()->intended('dashboard')
-        //                     ->withSuccess('Signed in');
-        //     }
-        // }
+        else if ($cek = Passenger::where('username',$request->username)->first()) {
+            if(Hash::check($request->username, $cek->password)){
+                return redirect()->intended('dashboard')
+                            ->withSuccess('Signed in');
+            }
+        }
         return redirect("login")->withSuccess('Login details are not valid');
     }
 
@@ -47,21 +49,35 @@ class AuthController extends Controller
     public function customRegistration(Request $request)
     {
         $request->validate([
-            'nama_petugas' => 'required',
             'username' => 'required',
             'password' => 'required|min:6',
-            'level' => 'required',
+            'nama_penumpang' => 'required',
+            'alamat_penumpang' => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'telepon' => 'required',
         ]);
 
-        $data = $request->all();
-        $check = $this->create($data);
+        if(Passenger::where('username',$request->username)->first() || Passenger::where('username',$request->username)->first()){
+            return redirect('login')->withErrors('Username sudah digunakan');
+        }
 
-        return redirect("dashboard");
+        Passenger::create([
+            'username' => $request->username,
+            'password' => $request->password,
+            'nama_penumpang' => $request->nama_penumpang,
+            'alamat_penumpang' => $request->alamat_penumpang,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'telepon' => $request->telepon,
+        ]);
+
+        return redirect("login");
     }
 
     public function create(array $data)
     {
-      return Admin::create([
+      return Operator::create([
         'nama_petugas' => $data['nama_petugas'],
         'username' => $data['username'],
         'password' => Hash::make($data['password']),
