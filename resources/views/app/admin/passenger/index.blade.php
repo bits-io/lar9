@@ -59,6 +59,7 @@
                                     <h4 class="card-title">Data Penumpang</h4>
                                 </div>
                                 <div class="header-right">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAdd"><i class="fa fa-plus"></i>Tambah</button>
                                     <a class="btn btn-danger" href="{{ route('admin.passenger.pdf') }}">Export PDF</a>
                                     <a class="btn btn-success" href="{{ route('admin.passenger.xlsx') }}">Export Excel</a>
                                 </div>
@@ -101,9 +102,11 @@
                                                             <td>{{ $p->alamat_penumpang }}</td>
                                                             <td>{{ $p->tanggal_lahir }}</td>
                                                             <td>{{ $p->jenis_kelamin }}</td>
-                                                            <td>{{ $p->telepon }}/11/28</td>
+                                                            <td>{{ $p->telepon }}</td>
                                                             <td>
-
+                                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-edit"></i></button>
+                                                                <a href="{{ route('admin.passenger.edit', $p->id_penumpang) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                                                <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -111,6 +114,117 @@
                                                 </table>
                                             </div>
                                         </div>
+
+                                        {{-- Modal Add --}}
+                                        <div class="modal fade" id="modalAdd">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Edit</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form class="mt-5 mb-5 login-input" method="POST" action="{{ route('admin.passenger.create') }}">
+                                                            @csrf
+                                                            <div class="form-group">
+                                                                <label for="">Username</label>
+                                                                <input type="text" class="form-control"  placeholder="Masukkan Username" name="username" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Password</label>
+                                                                <input type="password" class="form-control" placeholder="Masukkan Password" name="password" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Nama Penumpang</label>
+                                                                <input type="text" class="form-control"  placeholder="Masukkan Nama Penumpang" name="nama_penumpang" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Alamat Penumpang</label>
+                                                                <input type="text" class="form-control"  placeholder="Masukkan Alamat Penumpang" name="alamat_penumpang" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Tanggal Lahir</label>
+                                                                <input type="date" class="form-control"  placeholder="Masukkan Tanggal Lahir" name="tanggal_lahir" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Jenis Kelamin</label>
+                                                                <select name="jenis_kelamin" class="form-control" required>
+                                                                    <option value="">Pilih Jenis Kelamin</option>
+                                                                    <option value="1">Laki-laki</option>
+                                                                    <option value="2">Perempuan</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Telepon</label>
+                                                                <input type="tel" class="form-control"  placeholder="Masukkan Telepon" name="telepon" required>
+                                                            </div>
+
+                                                            <div class="form-group justify-content-end">
+                                                                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Modal Edit -->
+                                        <div class="modal fade" id="modalEdit">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Edit</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form class="mt-5 mb-5 login-input" method="POST" action="{{ route('registration') }}">
+                                                            @csrf
+                                                            <div class="form-group">
+                                                                <label for="">Username</label>
+                                                                <input type="text" class="form-control"  placeholder="Masukkan Username" name="username" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Password</label>
+                                                                <input type="password" class="form-control" placeholder="Masukkan Password" name="password" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Nama Penumpang</label>
+                                                                <input type="text" class="form-control"  placeholder="Masukkan Nama Penumpang" name="nama_penumpang" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Alamat Penumpang</label>
+                                                                <input type="text" class="form-control"  placeholder="Masukkan Alamat Penumpang" name="alamat_penumpang" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Tanggal Lahir</label>
+                                                                <input type="date" class="form-control"  placeholder="Masukkan Tanggal Lahir" name="tanggal_lahir" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Jenis Kelamin</label>
+                                                                <select name="jenis_kelamin" class="form-control" required>
+                                                                    <option value="">Pilih Jenis Kelamin</option>
+                                                                    <option value="1">Laki-laki</option>
+                                                                    <option value="2">Perempuan</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Telepon</label>
+                                                                <input type="tel" class="form-control"  placeholder="Masukkan Telepon" name="telepon" required>
+                                                            </div>
+
+                                                            <div class="form-group justify-content-end">
+                                                                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         {{-- <div class="row">
                                             <div class="col-sm-12 col-md-5">
                                                 <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">

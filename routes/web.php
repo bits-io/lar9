@@ -39,6 +39,9 @@ Route::group(['prefix' => 'admin'] ,function(){
     Route::get('dashboard', [AuthController::class, 'dashboard'])->name('admin.dashboard');
 
     Route::get('passenger', [PassengerController::class, 'index'])->name('admin.passenger');
+    Route::post('passenger', [PassengerController::class, 'create'])->name('admin.passenger.create');
+    Route::put('passenger/1', [PassengerController::class, 'edit'])->name('admin.passenger.edit');
+    Route::get('passenger/1', [PassengerController::class, 'show'])->name('admin.passenger.show');
 
     Route::get('passenger/pdf', [PassengerController::class, 'exportPDF'])->name('admin.passenger.pdf');
     Route::get('passenger/xlsx', [PassengerController::class, 'exportXlsx'])->name('admin.passenger.xlsx');

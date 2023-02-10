@@ -54,7 +54,7 @@
                                         <input type="text" class="form-control" placeholder="Masukkan Username" name="username">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Username</label>
+                                        <label for="">Password</label>
                                         <input type="password" class="form-control" placeholder="Masukkan Password" name="password">
                                     </div>
                                     <button type="submit" class="btn login-form__btn submit w-100">Sign In</button>

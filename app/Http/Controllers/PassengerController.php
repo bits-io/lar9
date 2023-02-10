@@ -7,6 +7,7 @@ use App\Models\Passenger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -48,9 +49,19 @@ class PassengerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        Passenger::create([
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+            'nama_penumpang' => $request->nama_penumpang,
+            'alamat_penumpang' => $request->alamat_penumpang,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'telepon' => $request->telepon,
+        ]);
+
+        return redirect("admin/passenger")->with('success', 'Pendaftaran Berhasil');
     }
 
     /**
@@ -70,7 +81,7 @@ class PassengerController extends Controller
      * @param  \App\Models\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Request $request)
     {
         //
     }
@@ -81,7 +92,7 @@ class PassengerController extends Controller
      * @param  \App\Models\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Request $request)
     {
         //
     }
