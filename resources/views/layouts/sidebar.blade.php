@@ -47,8 +47,8 @@
                     <i class="icon-note menu-icon"></i><span class="nav-text">Laporan</span>
                 </a>
                 <ul aria-expanded="false">
-                    {{-- <li><a href="{{ route('admin.booking-report') }}">Laporan Pemesanan</a></li> --}}
-                    <li>Laporan</li>
+
+                    <li><a href="{{ route('admin.passenger.report') }}">Penumpang</a></li>
                 </ul>
             </li>
             <li class="nav-label">Table</li>

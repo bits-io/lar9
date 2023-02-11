@@ -6,6 +6,7 @@ use App\Exports\PassengerExport;
 use App\Models\Passenger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Dompdf\dompdf;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
@@ -21,7 +22,7 @@ class PassengerController extends Controller
     public function index()
     {
         if(Session::has('isLogin') && Session::get('role') == 'operator'){
-            $data['passenger'] = Passenger::all(['username','nama_penumpang','alamat_penumpang','tanggal_lahir','jenis_kelamin','telepon','created_at']);
+            $data['passenger'] = Passenger::all(['id_penumpang','username','nama_penumpang','alamat_penumpang','tanggal_lahir','jenis_kelamin','telepon','created_at']);
 
 			return view('app.admin.passenger.index', $data);
 		}else{
@@ -29,13 +30,22 @@ class PassengerController extends Controller
 		}
     }
 
+    public function report(Request $request)
+    {
+
+
+        $data['petugas'] = Passenger::all(['id_penumpang','username','nama_penumpang','alamat_penumpang','tanggal_lahir','jenis_kelamin','telepon','created_at']);
+        return view('app.admin.passenger', $data);
+
+    }
+
     public function exportPDF() {
 
-        $data['passenger'] = Passenger::all(['nama_penumpang','alamat_penumpang','tanggal_lahir','jenis_kelamin','telepon']);
-
+        $data['passenger'] = Passenger::all(['id_penumpang','nama_penumpang','alamat_penumpang','tanggal_lahir','jenis_kelamin','telepon','created_at']);
+        set_time_limit(6000);
         $pdf = PDF::loadView('app.admin.passenger.index', $data);
 
-        return $pdf->download('data-penumpang.pdf');
+        return $pdf->stream('data-penumpang.pdf');
 
     }
 
@@ -94,7 +104,7 @@ class PassengerController extends Controller
      */
     public function edit(Request $request)
     {
-        //
+        return redirect("admin/passenger")->with('success', 'Pendaftaran Berhasil');
     }
 
     /**
@@ -119,4 +129,5 @@ class PassengerController extends Controller
     {
         //
     }
+
 }
